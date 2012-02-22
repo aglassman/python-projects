@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link type="text/css" rel="stylesheet" href="resources/stylesheets/main.css" />
+		<link type="text/css" rel="stylesheet" href="resources/jquery/css/custom-theme/jquery-ui-1.8.17.custom.css" />
+		<script type="text/javascript" src="resources/jquery/js/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="resources/jquery/js/jquery-ui-1.8.17.custom.min.js"> </script>
+		<script type="text/javascript" src="resources/js/my_scripts.js"> </script>
+	</head>
+	<div>
+		<form name="product" action="/products/submit" method="post">
+				<table>
+				<tr>
+					<td>Sku:</td>
+					<td><input type="text" name="sku" value="{{sku}}"/></td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" name="price" /></td>
+				</tr>
+				<tr>
+					<td>Description:</td>
+					<td><textarea rows="10" col="10" name="description" ></textarea></td>
+				</tr>
+				<tr>
+					<td>Product Image:</td>
+					<td><input type="file" name="image"/></td>
+				</tr>
+			</table>
+			<input type="submit" value="Submit" />
+		</form>
+	</div>
+</html>

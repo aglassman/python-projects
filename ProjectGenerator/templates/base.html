@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link type="text/css" rel="stylesheet" href="resources/stylesheets/main.css" />
+		<link type="text/css" rel="stylesheet" href="resources/jquery/css/custom-theme/jquery-ui-1.8.17.custom.css" />
+		<script type="text/javascript" src="resources/jquery/js/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="resources/jquery/js/jquery-ui-1.8.17.custom.min.js"> </script>
+		<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29101316-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	</head>
+	<div class="desktopPage transparentContainer">
+		<div class="transparency"></div>
+		<div class="nonTransparentContent">
+			<div class="pageComponent header">
+				{% block header %}<h1>Glassman Web Design</h1>{% endblock %}
+			</div>
+			<div class="pageComponent menu">
+					<ul>
+						{% for menuOption in menuOptions -%}
+							<li {% if menuOption.selected %} class="selected" {% endif %}>
+								<a href="{{menuOption.url}}">{{menuOption.text}}</a>
+							</li>
+						{%- endfor %}
+					</ul>
+					<div style="clear:both"></div>
+			</div>
+			{% block mainContent %}<div><p>base mainContent</p><div>{% endblock %}
+			<div class="pageComponent footer">
+				{% block footer %}<span>Andrew Glassman <a href="http://www.linkedin.com/pub/andrew-glassman/14/349/a4b">LinkedIn</a> <a href="http://www.twitter.com/a_glassman">Twitter</a> - Written in Python, Hosted on Google App Engine.<span>{% endblock %}
+			</div>
+		</div>
+	</div>
+</html>

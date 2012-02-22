@@ -1,0 +1,16 @@
+{% extends "templates/mainContentWithAccordianSidebar.html" %}
+{% block body %}
+<h2>Contact Me</h2>
+<form action="/emailMe" method="post">
+	<table>
+		<tr>
+			<td>Your Email:</td><td><input type="text" name="replyTo" cols="50"/></td>
+		</tr>
+		<tr>
+			<td>Subject:</td><td><input type="text" name="subject" cols="50"/></td>
+		</tr>
+	</table>
+	<div><textarea name="body" rows="10" cols="50"></textarea></div>
+	<div><input type="submit" value="Submit"></div>
+</form>
+{% endblock %}

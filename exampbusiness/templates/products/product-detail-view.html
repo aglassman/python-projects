@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link type="text/css" rel="stylesheet" href="/resources/stylesheets/main.css" />
+		<link type="text/css" rel="stylesheet" href="/resources/jquery/css/custom-theme/jquery-ui-1.8.17.custom.css" />
+		<script type="text/javascript" src="/resources/jquery/js/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="/resources/jquery/js/jquery-ui-1.8.17.custom.min.js"> </script>
+		<script type="text/javascript" src="/resources/js/my_scripts.js"> </script>
+	</head>
+	<div>
+		<table>
+				<tr>
+					<td>Sku</td>
+					<td>Name</td>
+					<td>Price</td>
+					<td>Description</td>
+					<td>Image</td>
+				</tr>
+				<tr>
+					<td>{{product.sku}}</td>
+					<td>{{product.name}}</td>
+					<td>{{product.price}}</td>
+					<td>{{product.description}}</td> 
+					<td><img src="/servimage/{{product.key()}}" width="200" height="200" alt="failed"/></td>
+				</tr>
+		</table>
+	</div>
+	<a href="/products/all">View All Products</a>
+</html>

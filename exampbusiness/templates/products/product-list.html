@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link type="text/css" rel="stylesheet" href="resources/stylesheets/main.css" />
+		<link type="text/css" rel="stylesheet" href="resources/jquery/css/custom-theme/jquery-ui-1.8.17.custom.css" />
+		<script type="text/javascript" src="resources/jquery/js/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="resources/jquery/js/jquery-ui-1.8.17.custom.min.js"> </script>
+		<script type="text/javascript" src="resources/js/my_scripts.js"> </script>
+	</head>
+	<div>
+		<table>
+				<tr>
+					<td>Sku</td>
+					<td>Name</td>
+				</tr>
+			{% for product in products -%}
+				
+					<tr>
+						<td>{{product.sku}}</td>
+						<td>{{product.name}}</td>
+						<td><a href="/products/bykey/{{product.key()}}">details</a></td>
+					</tr>
+			{%- endfor %}
+		</table>
+	</div>
+	<a href="/products/new">New Product</a>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="resources/stylesheets/main.css" />
+		<link type="text/css" rel="stylesheet" href="resources/jquery/css/custom-theme/jquery-ui-1.8.17.custom.css" />
+		<script type="text/javascript" src="resources/jquery/js/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="resources/jquery/js/jquery-ui-1.8.17.custom.min.js"> </script>
+	</head>
+	<div class="desktopPage">
+		<div class="pageComponent header">
+				{% block header %}header{% endblock %}
+		</div>
+		<div class="pageComponent currentchat">
+				{% block currentchat %}currentchat{% endblock %}
+		</div>
+		<div class="pageComponent sayform">
+				{% block sayform %}sayform{% endblock %}
+		</div>
+	</div>
+</html>

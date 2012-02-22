@@ -1,0 +1,14 @@
+{% extends "templates/currentchatbase.html" %}
+
+{% block header %}<h2>HTML5 Test</h2>{% endblock %}
+{% block currentchat %}
+<script type='text/javascript'>
+        var source = new EventSource('currentchatsse');
+        source.onmessage = function (event) {
+           ev = document.getElementById('result');
+           ev.innerHTML += "<br>[in] " + event.data;
+        };
+</script>
+<div id="result"></div>
+{% endblock %}
+{% block sayform %}sayforme{% endblock %}

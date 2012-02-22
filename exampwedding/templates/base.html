@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link type="text/css" rel="stylesheet" href="resources/stylesheets/main.css" />
+		<link type="text/css" rel="stylesheet" href="resources/jquery/css/custom-theme/jquery-ui-1.8.17.custom.css" />
+		<script type="text/javascript" src="resources/jquery/js/jquery-1.7.1.min.js" ></script>
+		<script type="text/javascript" src="resources/jquery/js/jquery-ui-1.8.17.custom.min.js"> </script>
+		<script type="text/javascript" src="resources/jquery/js/coin-slider.min.js"> </script>
+	</head>
+	<div class="desktopPage">
+		<div style="float:left" class="leftVertBanner"><img src="/resources/images/sidebanner.jpg"/></div>
+		<div style="float:left" class="matchHeight">
+			<div class="pageComponent header">
+				{% block header %}<h1 class="script">{{headerText}}</h1>{% endblock %}
+			</div>
+			<div class="pageComponent menu">
+					<ul>
+						{% for menuOption in menuOptions -%}
+							<li {% if menuOption.selected %} class="selected" {% endif %}>
+								<a href="{{menuOption.url}}">{{menuOption.text}}</a>
+							</li>
+						{%- endfor %}
+					</ul>
+					<div style="clear:both"></div>
+			</div>
+			<div>{% block mainContent %}<div><p>base mainContent</p><div>{% endblock %}</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+</html>

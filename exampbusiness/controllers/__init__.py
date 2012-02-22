@@ -1,0 +1,1 @@
+__all__ = ["main_page_controller", "product_controller", "dynamic_image_controller"]

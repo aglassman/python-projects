@@ -1,0 +1,22 @@
+{% extends "templates/base.html" %}
+{% block mainContent %}
+	<div class="pageComponent mainContent">
+				<div class="mainBody">{% block body %}<span>body<span>{% endblock %}</div>
+				<div class="sidebar">
+					<div id="accordion">
+						{% for content in sidebarContent -%}
+							<h3><a href="#">{{content.title}}</a></h3>
+						<div>
+							<p>{{content.body}}</p>
+						</div>
+						{%- endfor %}
+					</div>
+				</div>
+				<div style="clear:both"></div>
+	</div>
+	<script>
+		$(function() {
+			$("#accordion" ).accordion({fillSpace: true});
+		});
+	</script>
+{% endblock %}

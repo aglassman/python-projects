@@ -1,0 +1,32 @@
+{% extends "templates/base.html" %}
+{% block mainContent %}
+<div class="pageComponent mainContent">
+	<!--<p style="float:left"><b>Andrew & Amanda</b><br>Request the pleasure of your company<br>at the celebration of their marriage</p>-->
+</div>
+<div id='coin-slider'>
+    <a href="/resources/images/1.jpg" target="_blank">
+        <img src='/resources/images/1.jpg' >
+    </a>
+    <a href="/resources/images/2.jpg" target="_blank">
+        <img src='/resources/images/2.jpg' >
+    </a>
+    <a href="/resources/images/3.jpg" target="_blank">
+        <img src='/resources/images/3.jpg' >
+    </a>
+    <a href="/resources/images/4.jpg" target="_blank">
+        <img src='/resources/images/4.jpg' >
+    </a>
+    <a href="/resources/images/5.jpg" target="_blank">
+        <img src='/resources/images/5.jpg' >
+    </a>
+    <a href="/resources/images/6.jpg" target="_blank">
+        <img src='/resources/images/6.jpg' >
+    </a>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#coin-slider').coinslider({width:800});
+    });
+</script>
+
+{% endblock %}
