@@ -1,0 +1,138 @@
+{% extends "templates/box2dCanvasBase.html" %}
+{% block mainContent %}
+    <body>
+        <div id="main">
+            <div id="header">
+                <h1>Run This In Chrome!</h1>
+            </div>
+            <div id="nav">
+                <canvas name="canvas" id="canvas" width="800" height="200"></canvas>
+            </div>
+            <div id="content">
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        window.onload = function() { 
+            var navItems = {"items":[
+                {   "name":"one",
+                    "link":"one.html"},
+
+                {   "name":"two",
+                    "link":"two.html"},
+
+                {   "name":"three",
+                    "link":"three.html"},
+
+                {   "name":"four",
+                    "link":"four.html"}
+            ]};
+            var world = createWorld();
+            createGround(world,0,200,800,20);
+            createBox(world,60,20,10,10,false);
+            createBox(world,60,60,10,10,false);
+            createBox(world,80,40,30,10,false);
+            createBox(world,100,20,10,10,false);
+            createBox(world,100,60,10,10,false);
+            createCircleBody(60,0,10,world);
+
+            var obj = document.getElementById('canvas');
+            
+
+            var initialPointx = 0;
+            var initialPointy = 0;
+
+            obj.addEventListener('mousedown', function(event) {
+              console.debug("Down: " + event.offsetX + " " + event.offsetY);
+              initialPointx = event.offsetX;
+              initialPointy = event.offsetY;
+            }, false);
+
+
+            obj.addEventListener('mouseup', function(event) {
+              console.debug("UP: " + event.offsetX + " " + event.offsetY);
+              if(Math.abs(initialPointx - event.offsetX) > 10 || Math.abs(initialPointy - event.offsetY) > 10)
+              {
+                console.debug("square");
+                var width = Math.abs(initialPointx - event.offsetX)/2;
+                var height = Math.abs(initialPointy - event.offsetY)/2;
+                createBox(world,initialPointx+(width),initialPointy+(height),width,height,false);
+              }
+              else
+              {
+                console.debug("circle");
+                createCircleBody(event.offsetX,event.offsetY,10,world);
+               }
+            }, false);
+
+
+
+            var timeStep = 1.0/60;
+			var iteration = 1;
+			
+			var c = document.getElementById("canvas");
+	    	var ctx = c.getContext("2d");
+            var rot=.00000001;
+			var worldInterval = setInterval(function(){
+
+				world.Step(timeStep, iteration);
+	            
+	            ctx.clearRect(0,0,800,200);
+	    		ctx.beginPath();
+	    		for (var b = world.m_bodyList; b; b = b.m_next) {
+					for (var s = b.GetShapeList(); s != null; s = s.GetNext()) {
+
+                        switch (s.m_type) {
+                            case b2Shape.e_circleShape:
+                            {
+                                drawPerson(ctx,s.m_position.x,s.m_position.y,s.m_body.m_rotation);
+                                break;
+                            }
+                            case b2Shape.e_polyShape:
+                            {
+                                var poly = s;
+                                var tV = b2Math.AddVV(poly.m_position, b2Math.b2MulMV(poly.m_R, poly.m_vertices[0]));
+                                ctx.moveTo(tV.x, tV.y);
+                                for (var i = 0; i < poly.m_vertexCount; i++) {
+                                    var v = b2Math.AddVV(poly.m_position, b2Math.b2MulMV(poly.m_R, poly.m_vertices[i]));
+                                    ctx.lineTo(v.x, v.y);
+                                }
+                                ctx.lineTo(tV.x, tV.y);
+                                ctx.strokeStyle = "blue";
+                                ctx.lineWidth = 2;
+                                ctx.fill();
+                                ctx.stroke();
+                                break;
+                            }
+                        }
+					}
+
+					
+				}
+    		},1000/60);
+        };
+
+        function drawPerson(ctx,x,y,r)
+        {
+            ctx.save();
+            ctx.translate(x,y);
+            ctx.rotate(r);
+            ctx.beginPath();
+            ctx.arc(0,0,10,0,Math.PI*2,true);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0,-5,5,0,Math.PI*2,true);
+            ctx.moveTo(0,0);
+            ctx.lineTo(0,5);
+            ctx.moveTo(-5,3);
+            ctx.lineTo(5,3);
+            ctx.moveTo(0,5);
+            ctx.lineTo(-5,10);
+            ctx.moveTo(0,5);
+            ctx.lineTo(5,10);
+            //ctx.arc(200,50,20,0,Math.PI*2,true);
+            ctx.stroke();
+            ctx.restore();
+        }
+    </script>
+{% endblock %}

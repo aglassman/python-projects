@@ -1,0 +1,102 @@
+html{background-image:url('/brew/images/milwaukee.jpg')}
+
+body{
+	padding: 0px;
+	margin: 0px;
+	/*font-family: 'Russo One', sans-serif;*/
+	font-family: 'Audiowide', cursive;
+}
+
+.noscript{
+	color:white;
+	padding:20px;
+}
+
+#header {
+	background-color: black;
+	color: white;
+	height:100px;
+	padding:0px;
+	margin: 0px;
+	position: absolute;
+}
+#header .top {
+	padding-left:0px;
+	font-size:415%;
+	top: -63px;
+	left: 2px;
+	position: relative;
+}
+
+#header .bottom {
+	padding-left:0px;
+	font-size:425%;
+	top: -140px;
+	left: 2px;
+	position: relative;
+}
+.box {
+	width:20px;
+	min-width:20px;
+	min-height:20px;
+	position: absolute;
+}
+
+.box p {
+	text-align: center;
+	margin:0;
+}
+
+.blue div,
+.yellow div,
+.green div,
+.orange div,
+.red div,
+.pink div{
+	font-family: 'Russo One', sans-serif;
+	margin:5px;
+	padding:10px;
+}
+
+
+.blue {
+	background-color: blue;
+}
+.blue div {
+	background-color:#0099FF;
+}
+
+.yellow{
+	background-color: yellow;
+}
+.yellow div {
+	background-color: #CCFF66;
+}
+
+.green{
+	background-color: green;
+}
+.green div {
+	background-color: #33FF00;
+}
+
+.orange{
+	background-color: orange;
+}
+.orange div {
+	background-color: #FFFF00;
+}
+
+.red{
+	background-color: red;
+}
+.red div {
+	background-color: #FF9900;
+}
+
+.pink{
+	background-color: #FF0099;
+}
+.pink div {
+	background-color: #FF99FF;
+}

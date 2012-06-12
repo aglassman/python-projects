@@ -28,15 +28,26 @@ class MainPage(webapp2.RequestHandler):
 				
 class Contact(webapp2.RequestHandler):
         def get(self):
-                template_values = {
-						'menuOptions':[{'url':'/','text':'Home'},
-										{'url':'/contact','text':'Contact Info','selected':True},
-										{'url':'/packages','text':'Web Design Packages'},
-										{'url':'/examples','text':'Design Examples'}],
-				        'sidebarContent':sidebarContent,
-				        'bodyContent' : 'Andrew Glassman <br> Milwaukee, WI <br> <a href="mailto:aglassman@octanellc.com">Email Me</a>'
-				}
-                template = jinja_environment.get_template('templates/contact.html')
+                template_values = {}
+                template = jinja_environment.get_template('templates/codebrew/Contact.html')
+                self.response.out.write(template.render(template_values))
+
+class About(webapp2.RequestHandler):
+        def get(self):
+                template_values = {}
+                template = jinja_environment.get_template('templates/codebrew/About.html')
+                self.response.out.write(template.render(template_values))
+
+class ExtraStuff(webapp2.RequestHandler):
+        def get(self):
+                template_values = {}
+                template = jinja_environment.get_template('templates/codebrew/ExtraStuff.html')
+                self.response.out.write(template.render(template_values))
+
+class Projects(webapp2.RequestHandler):
+        def get(self):
+                template_values = {}
+                template = jinja_environment.get_template('templates/codebrew/Projects.html')
                 self.response.out.write(template.render(template_values))
 
 class EmailMe(webapp2.RequestHandler):
@@ -67,8 +78,18 @@ class Examples(webapp2.RequestHandler):
                 template = jinja_environment.get_template('templates/examples.html')
                 self.response.out.write(template.render(template_values))
 
-app = webapp2.WSGIApplication([('/', MainPage),
+class Index(webapp2.RequestHandler):
+        def get(self):
+                template_values = {}
+                template = jinja_environment.get_template('templates/codebrew/index.html')
+                self.response.out.write(template.render(template_values))
+
+app = webapp2.WSGIApplication([('/', Index),
 								('/contact',Contact),
+								('/Contact.html',Contact),
+								('/About.html',About),
+								('/ExtraStuff.html',ExtraStuff),
+								('/Projects.html',Projects),
 								('/emailMe',EmailMe),
 								('/packages',Packages),
 								('/examples',Examples)],debug=True)
