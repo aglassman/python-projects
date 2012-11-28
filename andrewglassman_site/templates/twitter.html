@@ -1,0 +1,14 @@
+{% extends "templates/base.html" %}
+{% block additional_header %}
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+{% endblock %}
+{% block body %}
+  <div class="row">
+    <div class="span6">
+      <a class="twitter-timeline" href="https://twitter.com/a_glassman" data-widget-id="273877448637153280">Tweets by @a_glassman</a>		
+    </div>
+    <div class="span6">
+    	<a class="twitter-timeline" href="https://twitter.com/a_glassman/interesting-people" data-widget-id="273879693281853441">Tweets from @a_glassman/interesting-people</a>
+    </div>
+  </div>
+{% endblock %}

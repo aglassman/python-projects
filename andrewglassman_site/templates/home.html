@@ -1,0 +1,14 @@
+{% extends "templates/base.html" %}
+{% block body %}
+  <div class="row">
+    <div class="span4">
+      {% if user %}
+        <h2>Welcome, {{user}}</h2>
+      {% else %}
+      	<h2>Welcome</h2>
+      {% endif %}
+      <p>This is my generic site.  It runs on the Google AppEngine platform using the Webapp2 web framework, along with Jinja 2 template engine.  The UI is built using the Bootstrap framework, which was developed by Twitter.</p>
+      <p><a class="btn" href="/about">About Me &raquo;</a></p>
+    </div>
+  </div>
+{% endblock %}
